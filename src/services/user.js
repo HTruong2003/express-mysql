@@ -1,6 +1,6 @@
 import db from '../models'
 import { comparePassword } from '../utils/helpers.js'
-import { createToken } from '../utils/jwt.js'
+import { createToken } from '../middlewares/jwt.js'
 
 export const getOne = (userId) =>
     new Promise(async (res, rej) => {
@@ -8,8 +8,17 @@ export const getOne = (userId) =>
             const response = await db.User.findOne({
                 where: { id: userId },
                 attributes: {
-                    exclude: ['password']
-                }
+                    exclude: ['password', 'role_code'],
+                },
+                include: [
+                    {
+                        model: db.Role,
+                        as: 'role',
+                        attributes: {
+                            exclude: ['createdAt', 'updatedAt'],
+                        },
+                    },
+                ],
             })
 
             res({

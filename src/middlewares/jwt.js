@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken'
-import { badRequest, unauthorized } from './handleError.js'
+import { badRequest, unauthorized } from '../utils/handleError.js'
 
 export const createToken = (id, email, role_code) => {
     return jwt.sign({ id, email, role_code }, process.env.JWT_SECRET, {

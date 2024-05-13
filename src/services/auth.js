@@ -1,6 +1,6 @@
 import db from '../models'
 import { hashPassword, comparePassword } from '../utils/helpers.js'
-import { createToken } from '../utils/jwt.js'
+import { createToken } from '../middlewares/jwt.js'
 
 export const register = ({ email, password }) =>
     new Promise(async (res, rej) => {

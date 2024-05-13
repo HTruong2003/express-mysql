@@ -23,3 +23,41 @@ export const userValidation = {
         },
     },
 }
+
+export const bookValidation = {
+    title: {
+        notEmpty: {
+            errorMessage: 'Title cannot be empty',
+        },
+    },
+    price: {
+        isFloat: {
+            errorMessage: 'Price must be a float',
+        },
+        notEmpty: {
+            errorMessage: 'Price cannot be empty',
+        },
+    },
+    available: {
+        matches: {
+            options: /^[0-9]*$/,
+            errorMessage: 'Available only contains number',
+        },
+        notEmpty: {
+            errorMessage: 'Available cannot be empty',
+        },
+    },
+    category_code: {
+        notEmpty: {
+            errorMessage: 'Category code cannot be empty',
+        },
+    },
+}
+
+export const categoryValidation = {
+    value: {
+        notEmpty: {
+            errorMessage: 'Value cannot be empty',
+        },
+    },
+}

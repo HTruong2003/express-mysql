@@ -16,8 +16,8 @@ export const internalServerError = (res) => {
     })
 }
 
-export const notFound = (req, res) => {
-    const error = createError.NotFound('Bad gateway')
+export const notFound = (message) => (req, res) => {
+    const error = createError.NotFound(message)
     return res.status(error.status).json({
         err: 1,
         message: error.message,
