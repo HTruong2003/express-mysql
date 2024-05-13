@@ -61,3 +61,14 @@ export const categoryValidation = {
         },
     },
 }
+
+export const refreshTokenValidation = {
+    refreshToken: {
+        notEmpty: {
+            errorMessage: 'Refresh token cannot be empty',
+        },
+        isString: {
+            errorMessage: 'Refresh token must be string',
+        },
+    },
+}

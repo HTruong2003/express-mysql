@@ -24,10 +24,10 @@ export const notFound = (message) => (req, res) => {
     })
 }
 
-export const unauthorized = (err, res) => {
+export const unauthorized = (err, res, check) => {
     const error = createError.Unauthorized(err)
     return res.status(error.status).json({
-        err: 1,
+        err: check ? 2 : 1,
         message: error.message,
     })
 }
